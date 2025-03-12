@@ -1,0 +1,32 @@
+1. Crea la tabla de base de datos de estudiantes que ves en la imagen:
+
+CREATE TABLE estudiantes (
+  id INT,
+  nombre VARCHAR(100),
+  edad INT,
+  carrera VARCHAR(50)
+); 
+
+
+INSERT INTO estudiantes (id, nombre, edad, carrera)
+VALUES (2, 'María Gómez', 22, 'Arquitectura'), (3, 'Carlos Rodríguez', 21, 'Medicina'), (1, 'Juan Pérez', 18, 'Ingeniería Informática')
+
+1a. 📌 Selecciona todos los estudiantes cuya edad sea mayor a 20.
+
+SELECT * FROM estudiantes WHERE edad > 20
+
+1b. 📌 Actualiza la edad de Juan Pérez a 22 años.
+
+UPDATE estudiantes
+SET edad = 22
+WHERE nombre = 'Juan Pérez'; 
+
+1c. 📌 Añade un nuevo estudiante llamado Ana Sánchez, de 23 años, que estudia Psicología.
+
+INSERT INTO estudiantes (id, nombre, edad, carrera)
+VALUES (4, 'Ana Sánchez', 23, 'Psicología')
+
+1d. 📌 Elimina a Carlos Rodríguez de la tabla.🧠
+
+DELETE FROM estudiantes
+WHERE nombre = 'Carlos Rodríguez'; 
