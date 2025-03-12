@@ -1,0 +1,42 @@
+1. Crea la tabla de base de datos de productos
+
+CREATE TABLE productos (
+  id INT,
+  nombre VARCHAR(100),
+  categoria VARCHAR(50),
+  precio FLOAT(2),
+  stock INT
+); 
+
+
+INSERT INTO productos (id, nombre, categoria, precio, stock)
+VALUES 
+(1, 'Laptop', 'Electrónica', 1200.50, 15),
+(2, 'Smartphone', 'Electrónica', 699.99, 30),
+(3, 'Cámara', 'Electrónica', 499.75, 10),
+(5, 'Bolso de Cuero', 'Moda', 149.95, 20),
+(4, 'Zapatos Deportivos', 'Moda', 89.99, 50),
+(6, 'Libro de Ciencia Ficción', 'Libros', 24.99, 100)
+
+1a. 📌 Cuenta cuántos productos hay en la tabla.
+SELECT count(*) FROM libros;
+
+1b. 📌 Muestra los productos de la categoría 'Electrónica', limitando los resultados a 2 productos por página y mostrando la segunda página.
+SELECT * FROM productos WHERE categoria = 'Electrónica' ORDER BY categoria LIMIT 2 OFFSET 0;
+
+1c. 📌 Encuentra los productos que pertenecen a las categorías 'Moda' o 'Libros' y cuyo nombre contiene la palabra 'Deportivos'.
+SELECT * FROM productos
+WHERE categoria IN ('Moda', 'Libros') AND nombre like '%Deportivos%'; 
+
+1d. 📌 Muestra el nombre y el estado del stock ('En Stock' o 'Agotado') para cada producto.
+
+1e. 📌 Muestra las categorías únicas de productos.
+SELECT DISTINCT categoria FROM productos; 
+
+1f. 📌 Ordena los productos por precio de forma descendente.
+SELECT * FROM productos ORDER BY precio DESC; 
+
+
+
+
+
