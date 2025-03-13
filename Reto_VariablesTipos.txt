@@ -1,0 +1,32 @@
+1. Crea la tabla de base de datos de clientes
+
+CREATE TABLE clientes (
+  id INT,
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  email VARCHAR(100),
+  fecha_registro TIMESTAMP WITHOUT TIME ZONE,
+  --fecha_registro TIMESTAMP WITH TIME ZONE,
+  monto_compra DECIMAL
+); 
+
+INSERT INTO clientes (id, nombre, apellido, email, fecha_registro, monto_compra)
+VALUES 
+(1, 'Juan', 'Pérez', 'juan@example.com', '2025-01-15', 120.50),
+(2, 'María', 'Gómez', 'maria@example.com', '2025-02-20', 300.75),
+(3, 'Carlos', 'Martínez', 'carlos@example.com', '2012-03-05', 50.20)
+
+1a. 📌 Muestra el nombre y apellido de los clientes en una sola columna con un espacio en blanco en el medio.
+
+SELECT nombre ||' '|| apellido as cliente FROM clientes ;
+
+1b. 📌 Muestra el email y la longitud del email para cada cliente.
+UPDATE clientes SET email = 'carlos@example.com' WHERE id = 3;
+SELECT email, LENGTH(email) AS longitud FROM clientes ;
+
+1c. 📌 Muestra el monto de compra redondeado para cada cliente.
+SELECT nombre, round(monto_compra, 0) AS monto_compra FROM clientes;
+
+1d. 📌 Muestra la fecha de registro y el tipo de dato de la columna.
+
+SELECT nombre, fecha_registro, PG_TYPEOF(fecha_registro) AS tipo_dato FROM clientes;
